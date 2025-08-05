@@ -1,3 +1,5 @@
+// import { typeWriter } from './typewriter.js';
+
 const canvas = document.getElementById("gameCanvas");
 const ctx    = canvas.getContext("2d");
 
@@ -181,20 +183,20 @@ const buttons       = document.querySelectorAll(".btn"),
 mainCharO.id = "o-in-mario";
 
 // --- Typewriter Effect ---
-const typeWriter = (el, txt, speed = 50) => new Promise(res => {
-  let i = 0;
-  const cursor = Object.assign(document.createElement("span"), { className: "blinking-cursor", textContent: "|" });
-  el.append(cursor);
-  (function type() {
-    if (i < txt.length) {
-      el.insertBefore(document.createTextNode(txt[i]), cursor);
-      const ch = txt[i++];
-      setTimeout(type, ch === "," ? speed * 5 : ch === "." ? speed * 10 : speed);
-    } else {
-      setTimeout(() => { cursor.remove(); res(); }, 100);
-    }
-  })();
-});
+// const typeWriter = (el, txt, speed = 50) => new Promise(res => {
+//   let i = 0;
+//   const cursor = Object.assign(document.createElement("span"), { className: "blinking-cursor", textContent: "|" });
+//   el.append(cursor);
+//   (function type() {
+//     if (i < txt.length) {
+//       el.insertBefore(document.createTextNode(txt[i]), cursor);
+//       const ch = txt[i++];
+//       setTimeout(type, ch === "," ? speed * 5 : ch === "." ? speed * 10 : speed);
+//     } else {
+//       setTimeout(() => { cursor.remove(); res(); }, 100);
+//     }
+//   })();
+// });
 
 // --- Intro Sequence ---
 async function startSequence() {
