@@ -1,80 +1,38 @@
 :root {
   --bg_color: #0e1303;
-  --color-0: #ccff91;
-  --color-1: #f6c474;
-  --color-2: #89d2f9;
+  --color-0: #7ef838;
+  --color-1: #f91dc6;
 }
 
-.color-1 {
-  color: var(--color-0);
-}
-
-.color-2 {
-  color: var(--color-1);
-}
-
-/* === Base Styles === */
 body {
   margin: 0;
-  overflow: hidden;
   background: var(--bg_color);
   color: var(--color-0);
   font-family: 'Fira Code', 'Consolas', 'Courier New', monospace;
 }
-
-canvas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 1s;
+.content {
+  padding: 2rem;
+  padding-top: 8rem;
+  max-width: 1000px;
+  margin: auto;
 }
 
-canvas.visible {
-  opacity: 1;
-}
 
-/* === Overlay Content === */
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* === Headline === */
 h1 {
-  margin: 0 0 1rem;
-  font-weight: normal;
-  font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-weight: normal;
 }
 
-/* === Button Row === */
-.buttons {
-  width: 50%;
+a {
+    color: var(--color-0);
+    text-decoration: none;
+    display: block;
+    margin-left: 2rem;
 }
 
-/* === Buttons === */
-.btn {
-  display: block;
-  background: none;
-  border: none;
-  color: var(--color-0);
-  cursor: pointer;
-  padding: clamp(0.25rem, 2vw, 0.5rem) clamp(0.25rem, 4vw, 0.5rem);
-  font-size: clamp(1rem, 2.5vw, 1.25rem);
+a:hover {
+    text-decoration: underline;
 }
 
-.btn:hover{
-  text-decoration: underline;
-}
-
-#o-in-mario {
-  opacity: 0.1;
-}
-
-.semi-transparent {
-  opacity: 0.2;
+a[href="index.html"] {
+  margin-left: 0;
 }

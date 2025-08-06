@@ -182,22 +182,6 @@ const buttons       = document.querySelectorAll(".btn"),
       mainCharO     = document.createElement("span");
 mainCharO.id = "o-in-mario";
 
-// --- Typewriter Effect ---
-// const typeWriter = (el, txt, speed = 50) => new Promise(res => {
-//   let i = 0;
-//   const cursor = Object.assign(document.createElement("span"), { className: "blinking-cursor", textContent: "|" });
-//   el.append(cursor);
-//   (function type() {
-//     if (i < txt.length) {
-//       el.insertBefore(document.createTextNode(txt[i]), cursor);
-//       const ch = txt[i++];
-//       setTimeout(type, ch === "," ? speed * 5 : ch === "." ? speed * 10 : speed);
-//     } else {
-//       setTimeout(() => { cursor.remove(); res(); }, 100);
-//     }
-//   })();
-// });
-
 // --- Intro Sequence ---
 async function startSequence() {
   await typeWriter(headline, "Hello visitor, I'm ");
@@ -208,9 +192,9 @@ async function startSequence() {
 
   await typeWriter(mainCharO, "o");
   await typeWriter(headline, ".");
-  await typeWriter(buttons[0], "<Art>");
-  await typeWriter(buttons[1], "<Photos>");
-  await typeWriter(buttons[2], "<Apps>");
+  await typeWriter(buttons[0], "> Galleries");
+  await typeWriter(buttons[1], "<Apps>");
+  await typeWriter(buttons[2], "<About>");
 
   // Position ball where the 'o' was typed
   const rect = mainCharO.getBoundingClientRect(),

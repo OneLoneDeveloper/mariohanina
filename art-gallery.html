@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Art Gallery</title>
+    <link rel="stylesheet" href="css\style.css">
     <link rel="stylesheet" href="css\gallery.css">
   </head>
 
-  <body>
-    <a href="index.html" class="back-link" id="back-link"></a>
-    <h1 id="heading-1"></h1>
-    <div class="masonry"></div>
+  <body data-gallery="art">
+    <div class="content">
+      <a href="galleries.html" data-typewriter="&lt;-- Go back"></a>
+      <h1 data-typewriter="My Art Gallery"></h1>
+      <div class="masonry"></div>
+    </div>
   </body>
+
   <script src="js\typewriter.js"></script>
   <script src="js\gallery.js"></script>
 </html>

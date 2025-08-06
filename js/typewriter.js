@@ -1,3 +1,4 @@
+// typeWriter function (type letters one by one)
 const typeWriter = (element, txt, speed = 50, delay = 100) => new Promise(res => {
   let i = 0;
   const cursor = Object.assign(document.createElement("span"), { className: "blinking-cursor", textContent: "|" });
@@ -12,3 +13,14 @@ const typeWriter = (element, txt, speed = 50, delay = 100) => new Promise(res =>
     }
   })();
 });
+
+// Animate all elements that have a data-typewriter attribute one by one.
+async function typeAll() {
+  const elements = document.querySelectorAll('[data-typewriter]');
+  for (const el of elements) {
+    const text = el.dataset.typewriter;
+    await typeWriter(el, text, 30, 60);
+  }
+}
+
+typeAll();
