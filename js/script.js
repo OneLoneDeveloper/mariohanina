@@ -1,23 +1,9 @@
-// import { typeWriter } from './typewriter.js';
-
 const canvas = document.getElementById("gameCanvas");
 const ctx    = canvas.getContext("2d");
 
-// === Game‑wide Constants ===
-
-// SIZE VARIABLE
 const baseCanvasSize           = 900;
-// END
-
-
 const delayBeforeBallStarts    = 1500;
-
-// === Mutable Globals ===
-
-// SIZE VARIABLE
 let scaleFactor = 1;
-// END
-
 
 let centerX, centerY, radius,
     gravity   = 0.1,
@@ -171,27 +157,23 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-/***********************************************************
- *                TEXT ANIMATION MODULE                    *
- ***********************************************************/
-
 // --- Elements ---
 const buttons       = document.querySelectorAll(".btn"),
-      headline      = document.querySelector(".color-1"),
-      mainCharName  = Object.assign(document.createElement("span"), { className: "color-2" }),
+      heading      = document.querySelector("#heading"),
+      mainCharName  = Object.assign(document.createElement("span"), { className: "purple" }),
       mainCharO     = document.createElement("span");
 mainCharO.id = "o-in-mario";
 
 // --- Intro Sequence ---
 async function startSequence() {
-  await typeWriter(headline, "Hello visitor, I'm ");
-  headline.append(mainCharName);
+  await typeWriter(heading, "Hello visitor, I'm ");
+  heading.append(mainCharName);
 
   await typeWriter(mainCharName, "Mari");
   mainCharName.append(mainCharO);
 
   await typeWriter(mainCharO, "o");
-  await typeWriter(headline, ".");
+  await typeWriter(heading, ".");
   await typeWriter(buttons[0], "> Galleries");
   await typeWriter(buttons[1], "<Apps>");
   await typeWriter(buttons[2], "<About>");

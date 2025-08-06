@@ -17,7 +17,6 @@ body {
   margin: auto;
 }
 
-
 h1 {
     font-weight: normal;
 }
@@ -35,4 +34,8 @@ a:hover {
 
 a[href="index.html"] {
   margin-left: 0;
+}
+
+.purple {
+  color: var(--color-1);
 }
