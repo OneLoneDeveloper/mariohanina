@@ -1,3 +1,5 @@
+import { typeAll, typeWriter } from './typewriter.js';
+
 const canvas = document.getElementById("gameCanvas");
 const ctx    = canvas.getContext("2d");
 
@@ -158,7 +160,7 @@ function loop() {
 }
 
 // --- Elements ---
-const buttons       = document.querySelectorAll(".btn"),
+const links       = document.querySelectorAll("#links a"),
       heading      = document.querySelector("#heading"),
       mainCharName  = Object.assign(document.createElement("span"), { className: "purple" }),
       mainCharO     = document.createElement("span");
@@ -174,9 +176,9 @@ async function startSequence() {
 
   await typeWriter(mainCharO, "o");
   await typeWriter(heading, ".");
-  await typeWriter(buttons[0], "> Galleries");
-  await typeWriter(buttons[1], "<Apps>");
-  await typeWriter(buttons[2], "<About>");
+  await typeWriter(links[0], "> Galleries");
+  await typeWriter(links[1], "<Apps>");
+  await typeWriter(links[2], "<About>");
 
   // Position ball where the 'o' was typed
   const rect = mainCharO.getBoundingClientRect(),
