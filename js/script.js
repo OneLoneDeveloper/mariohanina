@@ -1,4 +1,4 @@
-import { typeAll, typeWriter } from './typewriter.js';
+import { typeAll } from './typewriter.js';
 
 const canvas = document.getElementById("gameCanvas");
 const ctx    = canvas.getContext("2d");
@@ -136,10 +136,8 @@ function handleResize() {
 
   scaleFactor  = size / baseCanvasSize;
   centerX = centerY = size / 2;
-  radius  = size * 0.45; // same as (size / 2) * 0.9
-
-  // Scale dynamic props
-  // ball.r         = 10 * scaleFactor;
+  radius  = size * 0.45; 
+  
   ball.r         = 10 * scaleFactor;
   ball.vx       *= scaleFactor;
   ball.vy       *= scaleFactor;

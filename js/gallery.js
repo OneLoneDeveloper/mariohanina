@@ -72,12 +72,6 @@ const showImages = () => {
     wrapper.appendChild(img);
     wrapper.appendChild(label);
     container.appendChild(wrapper);
-
-    // setTimeout(() => {
-    //   document.querySelectorAll('.art-item').forEach((item, i) => {
-    //     item.style.animationDelay = `${i * 100}ms`;
-    //   });
-    // }, i * 150);
   });
 }
 

@@ -1,0 +1,10 @@
+1- Add header, footer, and main?
+2- Put CSS numbers into variables?
+3- Refactor script.js (Important)
+4- Do what the lord says:
+    Split into modules:
+        physics.js (ball, paddle, easing, collision)
+        render.js (canvas drawing)
+        intro.js (typewriter + sequencing)
+5- Document gallery.js
+6- SEO Stuff
