@@ -9,7 +9,7 @@ canvas {
   transform: translate(-50%, -50%);
   z-index: -1;
   opacity: 0;
-  transition: opacity 1s;
+  /* transition: opacity 1s; */
 }
 
 canvas.visible {
@@ -22,4 +22,31 @@ canvas.visible {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+#o-in-mario {
+  display: inline-block;
+  line-height: 0;
+}
+
+@keyframes glitch {
+  0%   { transform: translate(0, 0) scale(1); opacity: 1; filter: none; }
+  10%  { transform: translate(-3px, 2px) scale(1.05); opacity: 0.3; filter: blur(1px) contrast(1.5); }
+  20%  { transform: translate(3px, -2px) scale(0.97); opacity: 0.1; filter: hue-rotate(15deg); }
+  30%  { transform: translate(-4px, 3px) scale(1.08); opacity: 0.4; filter: blur(1.5px); }
+  40%  { transform: translate(4px, -3px) scale(0.9); opacity: 0.2; filter: hue-rotate(-20deg); }
+  50%  { transform: translate(3px, -2px) scale(1.1); opacity: 0.6; filter: none; }
+  60%  { transform: translate(2px, 2px) scale(0.95); opacity: 0.3; filter: blur(2px) contrast(2); }
+  70%  { transform: translate(-2px, -2px) scale(1.05); opacity: 0.1; filter: hue-rotate(30deg); }
+  80%  { transform: translate(1px, -1px) scale(0.97); opacity: 0.4; filter: blur(1px); }
+  90%  { transform: translate(-1px, 1px) scale(1); opacity: 0.9; filter: none; }
+  100% { transform: translate(-2px, -2px) scale(1); opacity: 1; filter: none; }
+}
+
+.glitch {
+  animation: glitch 1s steps(1, end) infinite;
+}
+
+.invisible {
+  opacity: 0;
 }

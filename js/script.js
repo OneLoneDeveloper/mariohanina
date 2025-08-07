@@ -4,11 +4,11 @@ const canvas = document.getElementById("gameCanvas");
 const ctx    = canvas.getContext("2d");
 
 const baseCanvasSize           = 900;
-const delayBeforeBallStarts    = 1500;
+const delayBeforeBallStarts    = 4500;
 let scaleFactor = 1;
 
 let centerX, centerY, radius,
-    gravity   = 0.1,
+    gravity   = 0.02,
     animationStarted = false;
 
 // --- Ball & Paddle ---
@@ -101,12 +101,7 @@ function update() {
 // === Render ===
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  // Ball (drawn as "o" to match text)
-  const fontSize = parseFloat(getComputedStyle(document.querySelector("h1")).fontSize);
-  // console.log(fontSize);
-  
-  ctx.fillStyle  = "#f6c474";
+  ctx.fillStyle  = "#f91dc6";
   ctx.font       = `${fontSize}px monospace`;
   ctx.textAlign  = "center";
   ctx.textBaseline = "middle";
@@ -121,7 +116,7 @@ function draw() {
   ctx.beginPath();
   ctx.moveTo(px + Math.cos(perp) * half, py + Math.sin(perp) * half);
   ctx.lineTo(px - Math.cos(perp) * half, py - Math.sin(perp) * half);
-  ctx.strokeStyle = "#f6c474";
+  ctx.strokeStyle = "#f91dc6";
   ctx.lineWidth   = paddle.thickness;
   ctx.stroke();
 }
@@ -144,6 +139,7 @@ function handleResize() {
   radius  = size * 0.45; // same as (size / 2) * 0.9
 
   // Scale dynamic props
+  // ball.r         = 10 * scaleFactor;
   ball.r         = 10 * scaleFactor;
   ball.vx       *= scaleFactor;
   ball.vy       *= scaleFactor;
@@ -159,40 +155,38 @@ function loop() {
   requestAnimationFrame(loop);
 }
 
-// --- Elements ---
-const links       = document.querySelectorAll("#links a"),
-      heading      = document.querySelector("#heading"),
-      mainCharName  = Object.assign(document.createElement("span"), { className: "purple" }),
-      mainCharO     = document.createElement("span");
-mainCharO.id = "o-in-mario";
+const mainCharO = document.querySelector("#o-in-mario");
+mainCharO.setAttribute("data-char", "o");
 
 // --- Intro Sequence ---
 async function startSequence() {
-  await typeWriter(heading, "Hello visitor, I'm ");
-  heading.append(mainCharName);
+  await typeAll();
+  mainCharO.classList.add("glitch");
 
-  await typeWriter(mainCharName, "Mari");
-  mainCharName.append(mainCharO);
+  // Wait for glitch to finish (500ms)
+  await new Promise(res => setTimeout(res, 2000));
 
-  await typeWriter(mainCharO, "o");
-  await typeWriter(heading, ".");
-  await typeWriter(links[0], "> Galleries");
-  await typeWriter(links[1], "<Apps>");
-  await typeWriter(links[2], "<About>");
+  // Clean up
+  mainCharO.classList.remove("glitch"); 
+  mainCharO.classList.add("invisible"); 
 
-  // Position ball where the 'o' was typed
   const rect = mainCharO.getBoundingClientRect(),
         canv = canvas.getBoundingClientRect();
+        console.log(rect);
+        
   ball.x = rect.left + rect.width  / 2 - canv.left;
   ball.y = rect.top  + rect.height / 2 - canv.top;
 
   alignPaddleToPrediction();
 
-  canvas.classList.add("visible");
-  mainCharO.classList.add("semi-transparent");
-  setTimeout(() => (animationStarted = true), delayBeforeBallStarts);
+  
+  setTimeout(() => {
+    canvas.classList.add("visible");
+    animationStarted = true;
+   }, delayBeforeBallStarts);
 }
 
+const fontSize = parseFloat(getComputedStyle(document.querySelector("h1")).fontSize);
 handleResize();
 ball.x = centerX;
 ball.y = centerY - radius / 2;
