@@ -1,8 +1,9 @@
-/* ------------------------ Universal ------------------------ */
+/* ------------------------ Universals ------------------------ */
 :root {
   --bg_color: #0e1303;
   --color-0: #7ef838;
   --color-1: #f91dc6;
+  --content-bg: rgba(14, 19, 3, 0.85);
 }
 
 body {
@@ -25,18 +26,26 @@ h2, h3, h4 { font-size: clamp(1rem, 2.5vw, 1.25rem); font-weight: normal; margin
 a, p, div, pre { font-size: clamp(1rem, 2.5vw, 1.25rem); }
 
 /* Links */
-a { color: var(--color-0); text-decoration: none; display: block; }
+a { color: var(--color-0); text-decoration: none; /* display: block; */ }
 a:hover { text-decoration: underline; }
 
 /* Lists */
-ul { list-style: none; padding: 0; margin: 0 0 0 2rem; }
+ul { list-style: none; padding: 0; margin: 0 0 2rem 2rem; }
 
 
-/* ------------------------ Navigation Bar ------------------------ */
-.navbar { box-sizing: border-box; position: fixed; display: flex; justify-content: space-between; gap: 1rem; width: 100%; padding: 1rem 2rem 2rem; z-index: 100; }
+/* ------------------------ Header ------------------------ */
+.navbar { 
+  background: var(--content-bg); box-sizing: border-box; position: fixed; display: flex; 
+  justify-content: space-between; gap: 1rem; width: 100%; padding: 1rem 2rem 2rem; z-index: 100; 
+}
 .nav-links { display: flex; gap: 2rem; margin: 0; }
 
 @media (max-width: 768px) {
   .navbar { flex-direction: column; }
   .nav-links { display: block; }
 }
+
+
+/* ------------------------ Footer ------------------------ */
+.footer { position: absolute; box-sizing: border-box; width: 100%; bottom: 0; padding: 2rem 2rem 1rem; z-index: 100; /* Remove this: */ background-color: var(--content-bg); }
+.footer p { margin: 0; }

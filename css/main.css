@@ -1,31 +1,13 @@
-body {
-  overflow: hidden;
-}
+body { min-height: 100vh; }
 
-canvas {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: -1;
-  opacity: 0;
-}
+main { overflow: hidden; }
 
-canvas.visible {
-  opacity: 1;
-}
-
-.overlay {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-#o-in-mario {
-  display: inline-block;
-  line-height: 0;
-}
+canvas { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: -1; opacity: 0; }
+canvas.visible { opacity: 1; }
+.overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.invisible { opacity: 0; }
+.purple { color: var(--color-1); }
+#o-in-mario { display: inline-block; line-height: 0; }
 
 @keyframes blink {
   0%, 50%, 100% { opacity: 1; }
@@ -36,7 +18,3 @@ canvas.visible {
   animation: blink 2s step-start infinite;
 }
 
-.invisible { opacity: 0; }
-
-/* Classes */
-.purple { color: var(--color-1); }

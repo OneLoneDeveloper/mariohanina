@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Mario Hanina</title>
+    <meta name="description" content="Welcome to Mario's personal website. Explore coding projects, art galleries, and creative experiments." />
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main.css">
   </head>
@@ -22,21 +24,28 @@
       </nav>
     </header>
 
-    <!-- Bouncing Ball Background -->
-    <canvas id="gameCanvas"></canvas>
+    <main>
+      <!-- Bouncing Ball Background -->
+      <canvas id="gameCanvas"></canvas>
 
-    <!-- Main Content -->
-    <div class="overlay">
-      <h1>
-        <span data-typewriter="Hello visitor, I'm "></span><span data-typewriter="Mari" class="purple"></span><span data-typewriter="o" id="o-in-mario" class="purple"></span><span data-typewriter="."></span>
-      </h1>
-      <ul id="links">
-        <li><a href="apps.html" data-typewriter="> Coding Projects"></a></li>
-        <li><a href="galleries.html" data-typewriter="> Art Galleries"></a></li>
-        <li><a href="about-me.html" data-typewriter="> About"></a></li>
-      </ul>
-    </div>
+      <!-- Main Content -->
+      <div class="overlay">
+        <h1>
+          <span data-typewriter="Hello visitor, I'm "></span><span data-typewriter="Mari" class="purple"></span><span data-typewriter="o" id="o-in-mario" class="purple"></span><span data-typewriter="."></span>
+        </h1>
+        <ul id="links">
+          <li><a href="apps.html" data-typewriter="> Coding Projects"></a></li>
+          <li><a href="galleries.html" data-typewriter="> Art Galleries"></a></li>
+          <li><a href="about-me.html" data-typewriter="> About"></a></li>
+        </ul>
+      </div>
+    </main>
 
-    <script type="module" src="js/script.js"></script>
+    <!-- <footer class="footer">
+      <p>&copy; <span id="year"></span> Mario Hanina</p>
+    </footer> -->
+
+    <!-- <script src="js/script.js"></script> -->
+    <script type="module" src="js/physics.js"></script>
   </body>
 </html>
