@@ -159,13 +159,13 @@ mainCharO.setAttribute("data-char", "o");
 // --- Intro Sequence ---
 async function startSequence() {
   await typeAll();
-  mainCharO.classList.add("glitch");
+  mainCharO.classList.add("blink");
 
-  // Wait for glitch to finish (500ms)
+  // Wait for blink to finish (500ms)
   await new Promise(res => setTimeout(res, 2000));
 
   // Clean up
-  mainCharO.classList.remove("glitch"); 
+  mainCharO.classList.remove("blink"); 
   mainCharO.classList.add("invisible"); 
 
   const rect = mainCharO.getBoundingClientRect(),
